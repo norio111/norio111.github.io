@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="理学療法士としての経験を土台に、医療と技術の接点を探る個人制作のポートフォリオです。">
+  <title>norio111 | Medical × Technology</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1017;
+      --surface: #121a24;
+      --surface-hover: #172231;
+      --ink: #f2f6fa;
+      --muted: #9cabbc;
+      --line: #263241;
+      --blue: #4dc4ff;
+      --orange: #f6aa00;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 85% 8%, rgba(77, 196, 255, .12), transparent 28rem),
+        radial-gradient(circle at 8% 95%, rgba(246, 170, 0, .08), transparent 24rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-size: .94rem;
+      font-weight: 750;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+
+    .github-link {
+      color: var(--muted);
+      font-size: .92rem;
+      text-decoration: none;
+      transition: color .18s ease;
+    }
+
+    .github-link:hover { color: var(--ink); }
+
+    main { padding: 76px 0 64px; }
+
+    .intro {
+      max-width: 770px;
+      margin-bottom: 72px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.15rem, 7vw, 4.5rem);
+      line-height: 1.14;
+      letter-spacing: -.045em;
+    }
+
+    .intro-text {
+      max-width: 680px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.2vw, 1.12rem);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -.02em;
+    }
+
+    .count { color: var(--muted); font-size: .82rem; }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      min-height: 330px;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(150deg, rgba(255,255,255,.025), transparent 55%), var(--surface);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .card::before {
+      position: absolute;
+      top: 0;
+      left: 30px;
+      width: 54px;
+      height: 3px;
+      border-radius: 0 0 4px 4px;
+      background: var(--accent);
+      content: "";
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #3a4a5e;
+      background: var(--surface-hover);
+    }
+
+    .card-code { --accent: var(--orange); }
+    .card-gait { --accent: var(--blue); }
+
+    .number {
+      color: var(--accent);
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+      line-height: 1.35;
+      letter-spacing: -.025em;
+    }
+
+    .description {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 24px 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tags li {
+      padding: 3px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #b9c5d2;
+      font-size: .74rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 18px;
+      margin-top: auto;
+    }
+
+    .actions a {
+      position: relative;
+      font-size: .9rem;
+      font-weight: 720;
+      text-decoration: none;
+    }
+
+    .actions a::after {
+      display: inline-block;
+      margin-left: 6px;
+      content: "↗";
+      transition: transform .18s ease;
+    }
+
+    .actions a:hover::after { transform: translate(2px, -2px); }
+
+    .principles {
+      display: grid;
+      grid-template-columns: 1.1fr 1.9fr;
+      gap: 60px;
+      margin-top: 92px;
+      padding-top: 48px;
+      border-top: 1px solid var(--line);
+    }
+
+    .principles h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+    .principle-list {
+      display: grid;
+      gap: 25px;
+      margin: 0;
+    }
+
+    .principle-list div {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+    }
+
+    .principle-list dt {
+      color: var(--blue);
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+      font-size: .78rem;
+      font-weight: 750;
+    }
+
+    .principle-list dd {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .principle-list strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(77, 196, 255, .65);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 720px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      header { min-height: 62px; }
+      main { padding-top: 52px; }
+      .intro { margin-bottom: 54px; }
+      .projects { grid-template-columns: 1fr; }
+      .card { min-height: 300px; padding: 25px; }
+      .card::before { left: 25px; }
+      .principles { grid-template-columns: 1fr; gap: 28px; margin-top: 68px; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">norio111</a>
+      <a class="github-link" href="https://github.com/norio111" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="intro-title">
+        <p class="eyebrow">Medical × Technology</p>
+        <h1 id="intro-title">臨床で見えていた問題を、<br>動く形に。</h1>
+        <p class="intro-text">理学療法士としての経験を土台に、医療現場の課題を小さなWebツールにしています。モデルや数値をそのまま信じず、何を測り、どこまで使えるのかを確かめながら作っています。</p>
+      </section>
+
+      <section aria-labelledby="works-title">
+        <div class="section-heading">
+          <h2 id="works-title">制作したもの</h2>
+          <span class="count">2 projects</span>
+        </div>
+
+        <div class="projects">
+          <article class="card card-code">
+            <span class="number">01 / DATA</span>
+            <h3>医療コードマップ</h3>
+            <p class="description">異なる医療コード体系をひとつに潰さず、それぞれの粒度を保ったまま関係を参照するための試作です。</p>
+            <ul class="tags" aria-label="使用技術">
+              <li>Medical Data</li>
+              <li>Data Modeling</li>
+              <li>GitHub Pages</li>
+            </ul>
+            <div class="actions">
+              <a href="https://norio111.github.io/med-code-map-public/" target="_blank" rel="noopener noreferrer">デモを見る</a>
+              <a href="https://github.com/norio111/med-code-map-public" target="_blank" rel="noopener noreferrer">コード</a>
+            </div>
+          </article>
+
+          <article class="card card-gait">
+            <span class="number">02 / VISION</span>
+            <h3>歩行フォームビューア</h3>
+            <p class="description">歩行動画に骨格を重ね、再生・コマ送り・足部軌跡をブラウザ上で確認するツールです。動画は外部に送信しません。</p>
+            <ul class="tags" aria-label="使用技術">
+              <li>MediaPipe</li>
+              <li>Pose Estimation</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="actions">
+              <a href="https://norio111.github.io/gait_viewer/" target="_blank" rel="noopener noreferrer">デモを見る</a>
+              <a href="https://github.com/norio111/gait_viewer" target="_blank" rel="noopener noreferrer">コード</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="principles" aria-labelledby="principles-title">
+        <h2 id="principles-title">作るときに<br>考えていること</h2>
+        <dl class="principle-list">
+          <div>
+            <dt>01</dt>
+            <dd><strong>現場の意味をつぶさない</strong>整って見えることより、元の情報が持つ違いを残すことを優先します。</dd>
+          </div>
+          <div>
+            <dt>02</dt>
+            <dd><strong>数字の意味を確かめる</strong>計算できることと、判断に使えることを分けて考えます。</dd>
+          </div>
+          <div>
+            <dt>03</dt>
+            <dd><strong>実際に動かして比べる</strong>想定だけで終わらせず、異なる条件で試して、表示と実態のずれを探します。</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 norio111</span>
+      <span>Built with HTML &amp; CSS</span>
+    </footer>
+  </div>
+</body>
+</html>
