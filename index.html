@@ -16,6 +16,7 @@
       --line: #263241;
       --blue: #4dc4ff;
       --orange: #f6aa00;
+      --green: #5fd0a4;
       --max: 1080px;
     }
 
@@ -92,6 +93,8 @@
 
     .intro-text {
       max-width: 680px;
+      word-break: auto-phrase;
+      overflow-wrap: anywhere;
       margin: 28px 0 0;
       color: var(--muted);
       font-size: clamp(1rem, 2.2vw, 1.12rem);
@@ -148,6 +151,7 @@
       background: var(--surface-hover);
     }
 
+    .card-ops { --accent: var(--green); grid-column: 1 / -1; min-height: 0; }
     .card-code { --accent: var(--orange); }
     .card-gait { --accent: var(--blue); }
 
@@ -167,6 +171,7 @@
 
     .description {
       margin: 0;
+      word-break: auto-phrase;
       color: var(--muted);
       font-size: .96rem;
     }
@@ -242,6 +247,7 @@
 
     .principle-list dd {
       margin: 0;
+      word-break: auto-phrase;
       color: var(--muted);
     }
 
@@ -303,12 +309,27 @@
       <section aria-labelledby="works-title">
         <div class="section-heading">
           <h2 id="works-title">制作したもの</h2>
-          <span class="count">2 projects</span>
+          <span class="count">3 projects</span>
         </div>
 
         <div class="projects">
+          <article class="card card-ops">
+            <span class="number">01 / OPS</span>
+            <h3>業務改善ボード</h3>
+            <p class="description">医療・リハビリの現場で想定される、共有して使うものの管理を題材にしたプロトタイプです。リハビリ機器の利用順（台数・希望順・待ち始めた時刻）、病棟備品の返却状況の把握、社用車予約の重複防止の3つを、業務の流れを書き出すところから設計・実装・テストまで通して作りました。画面はサンプルデータで動作し、患者IDや担当者名はデモ用の識別子に統一しています。</p>
+            <ul class="tags" aria-label="使用技術">
+              <li>As-Is / To-Be</li>
+              <li>React</li>
+              <li>Vite</li>
+            </ul>
+            <div class="actions">
+              <a href="https://norio111.github.io/rehab-operations-portfolio/" target="_blank" rel="noopener noreferrer">デモを見る</a>
+              <a href="https://github.com/norio111/rehab-operations-portfolio" target="_blank" rel="noopener noreferrer">コード</a>
+            </div>
+          </article>
+
           <article class="card card-code">
-            <span class="number">01 / DATA</span>
+            <span class="number">02 / DATA</span>
             <h3>医療コードマップ</h3>
             <p class="description">異なる医療コード体系をひとつに潰さず、それぞれの粒度を保ったまま関係を参照するための試作です。</p>
             <ul class="tags" aria-label="使用技術">
@@ -317,13 +338,13 @@
               <li>GitHub Pages</li>
             </ul>
             <div class="actions">
-              <a href="https://norio111.github.io/med-code-map-public/" target="_blank" rel="noopener noreferrer">デモを見る</a>
-              <a href="https://github.com/norio111/med-code-map-public" target="_blank" rel="noopener noreferrer">コード</a>
+              <a href="https://norio111.github.io/med-code-map/" target="_blank" rel="noopener noreferrer">デモを見る</a>
+              <a href="https://github.com/norio111/med-code-map" target="_blank" rel="noopener noreferrer">コード</a>
             </div>
           </article>
 
           <article class="card card-gait">
-            <span class="number">02 / VISION</span>
+            <span class="number">03 / VISION</span>
             <h3>歩行フォームビューア</h3>
             <p class="description">歩行動画に骨格を重ね、再生・コマ送り・足部軌跡をブラウザ上で確認するツールです。動画は外部に送信しません。</p>
             <ul class="tags" aria-label="使用技術">
